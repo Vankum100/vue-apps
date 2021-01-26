@@ -1,16 +1,11 @@
-import Vue from "vue";
-import Router from "vue-router";
-import Login from "@/components/Login";
+import Login from "../components/Login";
+import Signup from "../components/Signup";
+import Chat from "../components/Chat";
+import Profile from "../components/Profile";
 
-Vue.use(Router);
-
-export default new Router({
-  routes: [
-    {
-      path: "/",
-      name: "Login",
-      component: Login,
-      mode: "history"
-    }
-  ]
-});
+export default [
+  { path: "/", component: Login },
+  { path: "/signup", component: Signup },
+  { path: "/chat", component: Chat },
+  { path: "/profile", component: Profile }
+];
