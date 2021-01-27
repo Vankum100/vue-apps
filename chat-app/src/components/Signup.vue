@@ -39,25 +39,59 @@
 <script>
 import firebase from "../services/firebase"
 export default {
-  app: 'Signup',
-  data(){
+  app: "Signup",
+  data() {
     return {
-      name:"",
-      email:"",
-      password:""
+      name: "",
+      email: "",
+      password: ""
+    };
+  },
+  methods: {
+    signup() {
+      const auth = firebase.auth();
+      const name = this.name;
+      const email = this.email;
+      const password = this.password;
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(async res => {
+          console.log("res", res);
+          // once we get the res from db then only we will save data to ls so that our local and db are in sync
+          await firebase
+            .firestore()
+            .collection("users")
+            .add({
+              name,
+              id: res.user.uid,
+              email,
+              password,
+              URL: "",
+              description: ""
+            })
+            .then(ref => {
+              localStorage.setItem("id", res.user.uid);
+              localStorage.setItem("name", name);
+              localStorage.setItem("email", email);
+              localStorage.setItem("password", password);
+              localStorage.setItem("photoURL", "");
+              localStorage.setItem("description", "");
+              localStorage.setItem("FirebaseDocumentId", ref.id);
+              this.name = "";
+              this.email = "";
+              this.password = "";
+              this.$router.push("/chat");
+            })
+            .catch(err => console.log(err));
+        })
+        .catch(err => {
+          var errorCode = err.code;
+          var errormessage = err.message;
+          Vue.toasted.show(errorCode).goAway(1500);
+          Vue.toasted.show(errormessage).goAway(1500);
+        });
+    }
   }
-},
-signup(){
-  const auth = firebase.auth();
-  const name = this.name;
-  const email = this.email;
-  const password = this.password;
-  auth.createUserWithEmailAndPassword(email, password).then( res => {
-    console.log("res", res);
-});
-
-},
-
 };
 </script>
 
