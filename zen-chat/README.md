@@ -1,4 +1,4 @@
-# VueJs Чат Приложения
+# VueJs Чат Приложение
 
 > chat application in vue.js using jsonplaceholder API for backend
 
