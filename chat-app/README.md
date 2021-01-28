@@ -1,6 +1,6 @@
-# VueJs Chat App
+# y
 
-> chat application in vue.js and firebase
+> chat apllication in vue.js and firebase
 
 ## Build Setup
 
@@ -27,3 +27,4 @@ npm run e2e
 npm test
 ```
 
+live Demo  [on-netlify](https://friendly-snyder-649a90.netlify.app/) 
