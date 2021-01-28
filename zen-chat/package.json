@@ -1,7 +1,7 @@
 {
-  "name": "chat-app",
+  "name": "zen-chat-app",
   "version": "1.0.0",
-  "description": "chat application in vue.js and firebase",
+  "description": "chat application in vue.js using jsonplaceholder API for backend",
   "author": "Vankum100 <kumkarana04@gmail.com>",
   "private": true,
   "scripts": {
