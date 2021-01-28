@@ -1,4 +1,4 @@
-# y
+# VueJs Чат Приложения
 
 > chat application in vue.js using jsonplaceholder API for backend
 
@@ -26,4 +26,4 @@ npm run e2e
 # run all tests
 npm test
 ```
-
+демо на [netlify](https://dreamy-easley-6d00eb.netlify.app/)
