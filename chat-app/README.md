@@ -1,4 +1,4 @@
-# y
+# VueJs Chat App
 
 > chat apllication in vue.js and firebase
 
